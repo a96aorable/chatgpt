@@ -271,7 +271,11 @@
           },
           body: JSON.stringify({
             model: "deepseek/deepseek-chat",
-            messages: conversation
+            messages: [
+    {
+      role: "user",
+      content: userMessage
+    }
           })
         });
 
