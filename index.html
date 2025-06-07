@@ -217,9 +217,9 @@
       <span class="typing-dot"></span>
     </div>
     <div id="inputContainer">
-      <input id="input" type="text" placeholder="Type something..." />
-      <button id="sendBtn">
-        <svg viewBox="0 0 24 24"><path d="M4 12l1.41 1.41L11 7.83v12.34h2V7.83l5.59 5.58L20 12l-8-8-8 8z"/></svg>
+      <input id="input" type="text" placeholder="Type something..." autocomplete="off" />
+      <button id="sendBtn" aria-label="Send message">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 12l1.41 1.41L11 7.83v12.34h2V7.83l5.59 5.58L20 12l-8-8-8 8z"/></svg>
       </button>
     </div>
     <div class="disclaimer">
@@ -264,21 +264,19 @@
         const response = await fetch("https://weathered-truth-6ec2.gbartelmann.workers.dev/", {
           method: "POST",
           headers: {
-            "Authorization": `Bearer YOUR_API_KEY_HERE`,
             "Content-Type": "application/json",
             "HTTP-Referer": "https://chatgpt.itzgee.com",
             "X-Title": "ChatGPT ItzGee"
           },
           body: JSON.stringify({
-            model: "openai/gpt-3.5-turbo",
-            messages: [
-              {
-                "role": "user",
-                "content": "What is the meaning of life?"
-              }
-            ]
+            model: "mistralai/mistral-7b-instruct",
+            messages: conversation
           })
         });
+
+        if (!response.ok) {
+          throw new Error(`API error: ${response.status}`);
+        }
 
         const data = await response.json();
         const botMessage = data.choices?.[0]?.message?.content || "⚠️ Sorry, something went wrong.";
