@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="light">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="ChatGPT by Gee – A sleek and modern AI chat experience inspired by Apple iMessage, powered by OpenRouter.">
-  <meta property="og:title" content="ChatGPT by Gee">
-  <meta property="og:description" content="Experience a smooth, iMessage-style AI chat. Built by Gee. Powered by OpenRouter.">
-  <meta property="og:image" content="https://itzgee.com/preview.jpg">
-  <meta property="og:url" content="https://chatgpt.itzgee.com">
-  <meta name="twitter:card" content="summary_large_image">
-  <link rel="icon" type="image/png" href="favicon.png">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta name="description" content="ChatGPT by Gee – A sleek and modern AI chat experience inspired by Apple iMessage, powered by OpenRouter." />
+  <meta property="og:title" content="ChatGPT by Gee" />
+  <meta property="og:description" content="Experience a smooth, iMessage-style AI chat. Built by Gee. Powered by OpenRouter." />
+  <meta property="og:image" content="https://itzgee.com/preview.jpg" />
+  <meta property="og:url" content="https://chatgpt.itzgee.com" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" type="image/png" href="favicon.png" />
   <title>ChatGPT by Gee</title>
   <style>
     :root {
@@ -217,7 +217,7 @@
       <span class="typing-dot"></span>
     </div>
     <div id="inputContainer">
-      <input id="input" type="text" placeholder="Type something...">
+      <input id="input" type="text" placeholder="Type something..." />
       <button id="sendBtn">
         <svg viewBox="0 0 24 24"><path d="M4 12l1.41 1.41L11 7.83v12.34h2V7.83l5.59 5.58L20 12l-8-8-8 8z"/></svg>
       </button>
@@ -226,7 +226,7 @@
       ⚠️ AI Disclaimer: No personal data is stored. All chat history is deleted after each use.
     </div>
     <footer>
-      Created by <a href="https://itzgee.com" target="_blank">Gee</a> • <a href="https://buymeacoffee.com/itzgee" target="_blank">Donate Here</a>
+      Created by <a href="https://itzgee.com" target="_blank" rel="noopener noreferrer">Gee</a> • <a href="https://buymeacoffee.com/itzgee" target="_blank" rel="noopener noreferrer">Donate Here</a>
     </footer>
   </div>
 
@@ -272,10 +272,11 @@
           body: JSON.stringify({
             model: "deepseek/deepseek-chat",
             messages: [
-             {
-            role: "user",
-            content: userMessage
-             }
+              {
+                role: "user",
+                content: userInput
+              }
+            ]
           })
         });
 
